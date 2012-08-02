@@ -7,18 +7,18 @@ utils = require "./utils"
 NUMBER = 5000
 LOOP = 100000
 
-console.time "C++ Time: "
-# console.log "C++ Result: #{factorial_cc.factorial(NUMBER)}"
-for i in [0...LOOP]
-  factorial_cc.factorial(NUMBER)
-console.timeEnd "C++ Time: "
-
-
 console.time "JavaScript Time: "
 # console.log "JavaScript Result: #{factorial_js.factorial(NUMBER)}"
 for i in [0...LOOP]
   factorial_js.factorial(NUMBER)
 console.timeEnd "JavaScript Time: "
+
+
+console.time "C++ Time: "
+# console.log "C++ Result: #{factorial_cc.factorial(NUMBER)}"
+for i in [0...LOOP]
+  factorial_cc.factorial(NUMBER)
+console.timeEnd "C++ Time: "
 
 
 loopFn = (v, i, iterFn) -> factorial_eio.factorial NUMBER, iterFn
