@@ -12,12 +12,21 @@ using namespace v8;
                   String::New("Argument " #I " must be a function")));  \
   Local<Function> VAR = Local<Function>::Cast(args[I]);
 
-int factorial(int n) {
+int f(int n) {
   int temp;
   if (n <= 1) {
     return 1;
   }
-  temp = n + factorial(n - 1);
+  temp = n + f(n - 1);
+  return temp;
+}
+
+int factorial(int n) {
+  int temp;
+  int i;
+  for (i = 0; i < 100000; i++) {
+    temp = f(n);
+  }
   return temp;
 }
 
